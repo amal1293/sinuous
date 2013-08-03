@@ -5,6 +5,9 @@ var dots = [];
 
 var initInterv;
 
+var mouseX,mouseY;
+var mouseMove = 0;
+
 startInitLoad();
 
 function startInitLoad(){
@@ -12,9 +15,6 @@ function startInitLoad(){
 }
 var num = 0;
 
-function generateThread(event){
-	
-}
 
 function initLoad(){
 	//console.log(num);
@@ -101,4 +101,19 @@ function initLoad(){
 	}
 	}
 }
+	if(mouseMove == 1){
+		context.fillStyle = '#438ad0';
+		context.beginPath();
+		context.arc(mouseX,mouseY,2,0,2*Math.PI);
+		context.closePath();
+		context.fill();
+	}
+}
+
+function generateThread(e){
+	mouseX = e.pageX;
+	mouseY = e.pageY;
+
+	mouseMove = 1;
+
 }
